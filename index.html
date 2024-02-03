@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Text to Speech</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dak Washington - Artist & Entrepreneur</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        header { background: #007bff; color: #ffffff; padding: 20px 0; text-align: center; }
+        nav ul { padding: 0; list-style-type: none; text-align: center; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a { color: #ffffff; text-decoration: none; }
+        section { margin-bottom: 20px; }
+        .about, .gallery, .ventures { text-align: center; }
+        footer { background: #333; color: #ffffff; text-align: center; padding: 10px 0; position: fixed; bottom: 0; width: 100%; }
+        img { max-width: 100%; height: auto; }
+    </style>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Type something here...">
-    <button onclick="sendText()">Submit</button>
-    <audio id="audioPlayer" controls></audio>
+    <header>
+        <h1>Dak Washington</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <script>
-        function sendText() {
-            var text = document.getElementById('textInput').value;
-            fetch('/generate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: text }),
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                var url = URL.createObjectURL(blob);
-                document.getElementById('audioPlayer').src = url;
-                document.getElementById('audioPlayer').play();
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
+    <div class="container">
+        <section id="about">
+            <h2>About Dak Washington</h2>
+            <p>Dak Washington, a trailblazer in the Brooklyn art community, embarked on her artistic journey in 2016. Her diverse portfolio spans across multiple mediums, reflecting her deep engagement with urban culture and social themes. In 2018, Dak founded the Washington Art Initiative, providing a collaborative space for artists to thrive and pushing the boundaries of contemporary art.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Explore a curated selection of Dak's groundbreaking works, illustrating her evolution as an artist and her exploration of complex narratives.</p>
+            <!-- Images would be placed here -->
+        </section>
+
+        <section id="ventures">
+            <h2>Entrepreneurial Ventures</h2>
+            <p>The Washington Art Initiative has grown into a cornerstone of Brooklyn's art scene, hosting exhibitions, workshops, and fostering innovative projects. Dak's latest project, the "Art & Tech Lab," explores the convergence of art and technology, aiming to redefine the future of artistic expression.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>To learn more about Dak Washington's work or the Washington Art Initiative, get in touch:</p>
+            <p>Email: info@dakwashington.com</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dak Washington. All rights reserved.</p>
+    </footer>
 </body>
 </html>
